@@ -112,7 +112,7 @@
   <main>
     <div class="badge">🎨 A new theme in one tap</div>
     <h1>Never stare at a blank page again</h1>
-    <p class="lede">Doodle Spin hands you a drawing theme to riff on — every tap, something new.</p>
+    <p class="lede">Doodle Spin generates random drawing themes for doodles, sketchbooks, digital art, illustration practice and daily drawing challenges.</p>
 
     <div class="mode-toggle" role="tablist" aria-label="Generation mode">
       <button class="mode-opt active" id="modeCategories" data-mode="categories" role="tab" aria-selected="true">Categories</button>
@@ -129,7 +129,6 @@
 
 <script src="themes.js"></script>
 <script>
-// Temas vêm do arquivo externo themes.js (fácil de editar). Fallback caso não carregue.
 const clean = arr => (Array.isArray(arr) && arr.length) ? arr : ["Underwater worlds"];
 const THEME_LISTS = {
   categories: clean(window.DOODLE_CATEGORIES),
