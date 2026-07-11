@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ritag189.github.io/DoodleSpin/sitemap.xml

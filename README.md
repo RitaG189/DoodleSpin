@@ -1,6 +1,6 @@
 # Doodle Spin
 
-A page that hands you a random **drawing theme** to riff on — every tap, something new. Never stare at a blank page again.
+A playful landing page that hands you a random **drawing theme** to riff on — every tap, something new. Never stare at a blank page again.
 
 **🔗 Live demo:** <https://ritag189.github.io/DoodleSpin/>
 
@@ -12,8 +12,13 @@ Built as a single, self-contained HTML page (no build step, no dependencies) fro
 |------|---------|
 | `index.html` | The whole app — markup, styles, and logic. |
 | `themes.js` | The theme lists. This is the file you edit to add or remove themes. |
+| `og-image.png` | 1200×630 social share preview image (referenced by the Open Graph / Twitter tags). |
+| `robots.txt` | Tells search-engine crawlers they may index everything, and points to the sitemap. |
+| `sitemap.xml` | Lists the site's URL(s) so search engines can discover them. |
 
-Both files must live in the **same folder**.
+`index.html` and `themes.js` must live in the **same folder**. For SEO to work once
+deployed, `og-image.png`, `robots.txt`, and `sitemap.xml` must sit in the site root
+alongside `index.html`.
 
 ## Running it
 
@@ -79,3 +84,25 @@ const state = {
 ```
 
 Change these values and reload to alter the palette, background animation speed, and shape style.
+
+## SEO
+
+The page ships with search-engine and social-sharing metadata baked into the `<head>`:
+
+- A keyword-focused `<title>` and `<meta name="description">`.
+- A `<link rel="canonical">` pointing at <https://ritag189.github.io/DoodleSpin/>.
+- **Open Graph** and **Twitter Card** tags, using `og-image.png` as the preview image.
+- An emoji favicon (🎨) embedded as an inline SVG (no extra request).
+- **JSON-LD structured data** describing the app as a free `WebApplication`.
+- `robots.txt` and `sitemap.xml` in the root.
+
+If you change the site URL (e.g. move to a custom domain), update it in **all** of these
+places: the `canonical`, `og:url`, `og:image`, `twitter:image`, and JSON-LD `url` inside
+`index.html`, plus `robots.txt` and `sitemap.xml`.
+
+### Still to do manually (outside the code)
+
+1. **Commit & push** `index.html`, `og-image.png`, `robots.txt`, and `sitemap.xml` so GitHub Pages serves them.
+2. Register the site in [Google Search Console](https://search.google.com/search-console) and submit `https://ritag189.github.io/DoodleSpin/sitemap.xml`.
+3. Verify the share preview with the [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) and [Twitter Card Validator](https://cards-dev.twitter.com/validator).
+4. Longer term: earn a few backlinks and consider a custom domain (ranks better than a `github.io` subdomain).
